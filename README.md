@@ -24,10 +24,10 @@ while the Centos version mandates privileged mode at the moment.
 
 ```bash
 # debian
-docker run -d --name debtest -p 6969:22 ansible-test-host:debian
+docker run -d --name debtest -p 1337:22 ansible-test-host:debian
 
 # centos
-docker run -d --privileged --name centtest -p 6969:22 ansible-test-host:centos
+docker run -d --privileged --name centtest -p 1337:22 ansible-test-host:centos
 ```
 
 These can now be connected to locally on your chosen port (1337 as above)
