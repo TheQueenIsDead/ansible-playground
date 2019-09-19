@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+
+  centos:
+    image: ansible-test-host:centos
+    container_name: centos
+    build:
+      context: images
+      dockerfile: Centos.Dockerfile
+    ports:
+      - 69:22
+
+  debian:
+    image: ansible-test-host:debian
+    container_name: debian
+    build:
+      context: images
+      dockerfile: Debian.Dockerfile
+    ports:
+      - 420:22
+
