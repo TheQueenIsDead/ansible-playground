@@ -20,7 +20,7 @@ RUN echo 'root:docker.io' | chpasswd
 RUN systemctl enable sshd.service
 
 # firewalld needs this ..
-ADD dbus.service /etc/systemd/system/dbus.service
+ADD ./images/dbus.service /etc/systemd/system/dbus.service
 RUN systemctl enable dbus.service
 
 #VOLUME [ "/sys/fs/cgroup" ]

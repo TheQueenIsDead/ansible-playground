@@ -2,21 +2,31 @@ version: '3.7'
 
 services:
 
+  ansible:
+    image: ansible-toolkit
+    container_name: ansible-toolkit
+    environment:
+      ANSIBLE_HOST_KEY_CHECKING: 'False'
+      PYTHONWARNINGS: 'ignore::UserWarning'
+    build:
+      context: .
+      dockerfile: images/Ansible.Dockerfile
+    command: tail -f /dev/null
+    volumes:
+      - './ansible:/app'
+
   centos:
     image: ansible-test-host:centos
     container_name: centos
     build:
-      context: images
-      dockerfile: Centos.Dockerfile
-    ports:
-      - 69:22
+      context: .
+      dockerfile: images/Centos.Dockerfile
+    privileged: true
 
   debian:
     image: ansible-test-host:debian
     container_name: debian
     build:
-      context: images
-      dockerfile: Debian.Dockerfile
-    ports:
-      - 420:22
+      context: .
+      dockerfile: images/Debian.Dockerfile
 
